@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mr Fares Hany</title>
+
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+  <div class="logo">
+    <div class="logo-box">FH</div>
+
+    <div>
+      <strong>Mr Fares Hany</strong>
+      <small>English Learning Platform</small>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#courses">الكورسات</a>
+    <a href="#translator">المترجم</a>
+    <a href="#about">عن المنصة</a>
+  </nav>
+
+  <div>
+    <a
+      class="btn whatsapp"
+      href="https://wa.me/201096954340"
+      target="_blank"
+    >
+      واتساب
+    </a>
+
+    <a
+      class="btn primary"
+      href="/student"
+    >
+      دخول الطالب
+    </a>
+  </div>
+
+</header>
+
+<section class="hero">
+
+  <div class="hero-text">
+
+    <span class="badge">
+      English Made Easy
+    </span>
+
+    <h1>
+      اتعلم الإنجليزي مع
+      <span>Mr Fares Hany</span>
+    </h1>
+
+    <p>
+      منصة تعليمية متكاملة فيها شرح ودروس وفيديوهات
+      وامتحانات وواجبات ومتابعة كاملة لمستواك.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="#courses" class="btn primary">
+        تصفح الكورسات
+      </a>
+
+      <a href="https://wa.me/201096954340"
+         target="_blank"
+         class="btn whatsapp">
+        تواصل مع المدرس
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="hero-card">
+
+    <div class="teacher-image">
+      <div class="fake-photo">
+        FH
+      </div>
+    </div>
+
+    <h3>
+      Mr Fares Hany
+    </h3>
+
+    <p>
+      English Teacher
+    </p>
+
+  </div>
+
+</section>
+
+<section id="courses" class="section">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>Courses</span>
+      <h2>الكورسات</h2>
+      <p>
+        اختار الكورس المناسب وابدأ رحلتك التعليمية.
+      </p>
+    </div>
+
+    <div id="coursesList" class="cards"></div>
+
+  </div>
+
+</section>
+
+<section id="translator" class="section dark-section">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>Translator</span>
+      <h2>المترجم</h2>
+    </div>
+
+    <div class="translator">
+
+      <textarea
+        id="sourceText"
+        placeholder="اكتب الكلمة أو الجملة هنا..."
+      ></textarea>
+
+      <button
+        class="btn primary"
+        onclick="translateText()"
+      >
+        ترجم
+      </button>
+
+      <div id="translationResult"
+           class="translation-result">
+        الترجمة تظهر هنا
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="about" class="section">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>Why Us</span>
+      <h2>كل احتياجاتك في مكان واحد</h2>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>🎥 فيديوهات</h3>
+        <p>
+          فيديوهات شرح منظمة لكل درس.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>📝 امتحانات</h3>
+        <p>
+          اختبارات إلكترونية وتصحيح تلقائي.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>📚 مذكرات</h3>
+        <p>
+          ملفات PDF وملخصات ومراجعات.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>👨‍🎓 متابعة</h3>
+        <p>
+          الطالب يعرف تقدمه ودرجاته باستمرار.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+
+  <h3>Mr Fares Hany</h3>
+
+  <p>
+    English Learning Platform
+  </p>
+
+  <a
+    href="https://wa.me/201096954340"
+    target="_blank"
+  >
+    WhatsApp: 01096954340
+  </a>
+
+</footer>
+
+<script src="/app.js"></script>
+
+</body>
+</html>
