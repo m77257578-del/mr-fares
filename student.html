@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Student Dashboard | Mr Fares Hany</title>
+
+  <link
+    rel="stylesheet"
+    href="/style.css"
+  >
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+  <div class="logo">
+    <div class="logo-box">FH</div>
+
+    <div>
+      <strong>Mr Fares Hany</strong>
+      <small>Student Dashboard</small>
+    </div>
+  </div>
+
+  <button
+    onclick="logout()"
+    class="btn"
+  >
+    خروج
+  </button>
+
+</header>
+
+<main class="dashboard">
+
+  <aside class="sidebar">
+
+    <button onclick="showSection('home')">
+      🏠 الرئيسية
+    </button>
+
+    <button onclick="showSection('courses')">
+      📚 كورساتي
+    </button>
+
+    <button onclick="showSection('exams')">
+      📝 الامتحانات
+    </button>
+
+    <button onclick="showSection('homework')">
+      ✏️ الواجبات
+    </button>
+
+    <button onclick="showSection('announcements')">
+      🔔 الإشعارات
+    </button>
+
+    <a
+      href="https://wa.me/201096954340"
+      target="_blank"
+      class="btn whatsapp"
+    >
+      واتساب المدرس
+    </a>
+
+  </aside>
+
+  <section class="dashboard-content">
+
+    <div id="home" class="dash-section">
+
+      <h1>
+        أهلًا بيك
+        <span id="studentName"></span>
+      </h1>
+
+      <div class="stats">
+
+        <div class="stat">
+          <strong id="totalLessons">
+            0
+          </strong>
+
+          <span>
+            إجمالي الدروس
+          </span>
+        </div>
+
+        <div class="stat">
+          <strong id="completedLessons">
+            0
+          </strong>
+
+          <span>
+            دروس مكتملة
+          </span>
+        </div>
+
+        <div class="stat">
+          <strong id="coursesCount">
+            0
+          </strong>
+
+          <span>
+            الكورسات
+          </span>
+        </div>
+
+      </div>
+
+      <div class="panel">
+
+        <h2>
+          تفعيل كود اشتراك
+        </h2>
+
+        <div class="inline-form">
+
+          <input
+            id="subscriptionCode"
+            placeholder="FH-XXXXXX-XXXXXX"
+          >
+
+          <button
+            class="btn primary"
+            onclick="activateCode()"
+          >
+            تفعيل
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div
+      id="courses"
+      class="dash-section"
+      style="display:none"
+    >
+
+      <h2>كورساتي</h2>
+
+      <div
+        id="subscriptionsList"
+        class="cards"
+      ></div>
+
+    </div>
+
+    <div
+      id="exams"
+      class="dash-section"
+      style="display:none"
+    >
+
+      <h2>الامتحانات</h2>
+
+      <div
+        id="examsList"
+        class="cards"
+      ></div>
+
+    </div>
+
+    <div
+      id="homework"
+      class="dash-section"
+      style="display:none"
+    >
+
+      <h2>الواجبات</h2>
+
+      <div
+        id="homeworkList"
+        class="cards"
+      ></div>
+
+    </div>
+
+    <div
+      id="announcements"
+      class="dash-section"
+      style="display:none"
+    >
+
+      <h2>الإشعارات</h2>
+
+      <div
+        id="announcementsList"
+        class="cards"
+      ></div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<script src="/student.js"></script>
+
+</body>
+
+</html>
