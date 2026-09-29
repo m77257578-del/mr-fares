@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Admin | Mr Fares Hany</title>
+
+  <link
+    rel="stylesheet"
+    href="/style.css"
+  >
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+  <div class="logo">
+
+    <div class="logo-box">
+      FH
+    </div>
+
+    <div>
+      <strong>
+        Mr Fares Hany
+      </strong>
+
+      <small>
+        Teacher Admin Panel
+      </small>
+    </div>
+
+  </div>
+
+  <button
+    class="btn"
+    onclick="logout()"
+  >
+    خروج
+  </button>
+
+</header>
+
+<div class="admin-layout">
+
+  <aside class="admin-sidebar">
+
+    <button onclick="openAdmin('dashboard')">
+      📊 Dashboard
+    </button>
+
+    <button onclick="openAdmin('students')">
+      👨‍🎓 الطلاب
+    </button>
+
+    <button onclick="openAdmin('courses')">
+      📚 الكورسات
+    </button>
+
+    <button onclick="openAdmin('lessons')">
+      🎥 الدروس
+    </button>
+
+    <button onclick="openAdmin('codes')">
+      🔐 أكواد الاشتراك
+    </button>
+
+    <button onclick="openAdmin('exams')">
+      📝 الامتحانات
+    </button>
+
+    <button onclick="openAdmin('homework')">
+      ✏️ الواجبات
+    </button>
+
+    <button onclick="openAdmin('announcements')">
+      🔔 الإشعارات
+    </button>
+
+  </aside>
+
+  <main class="admin-content">
+
+    <section
+      id="dashboard"
+      class="admin-section"
+    >
+
+      <h1>
+        لوحة تحكم المدرس
+      </h1>
+
+      <div class="stats">
+
+        <div class="stat">
+          <strong id="studentsCount">
+            0
+          </strong>
+
+          <span>
+            الطلاب
+          </span>
+        </div>
+
+        <div class="stat">
+          <strong id="coursesCount">
+            0
+          </strong>
+
+          <span>
+            الكورسات
+          </span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section
+      id="students"
+      class="admin-section"
+      style="display:none"
+    >
+
+      <h2>
+        الطلاب
+      </h2>
+
+      <div id="studentsTable"></div>
+
+    </section>
+
+    <section
+      id="courses"
+      class="admin-section"
+      style="display:none"
+    >
+
+      <h2>
+        إضافة كورس
+      </h2>
+
+      <form id="courseForm">
+
+        <input
+          name="title"
+          placeholder="اسم الكورس"
+          required
+        >
+
+        <input
+          name="grade"
+          placeholder="الصف"
+        >
+
+        <input
+          name="price"
+          type="number"
+          placeholder="السعر"
+        >
+
+        <textarea
+          name="description"
+          placeholder="وصف الكورس"
+        ></textarea>
+
+        <button class="btn primary">
+          إضافة الكورس
+        </button>
+
+      </form>
+
+    </section>
+
+    <section
+      id="lessons"
+      class="admin-section"
+      style="display:none"
+    >
+
+      <h2>
+        نشر درس
+      </h2>
+
+      <form
+        id="lessonForm"
+        enctype="multipart/form-data"
+      >
+
+        <input
+          name="course_id"
+          placeholder="Course ID"
+          required
+        >
+
+        <input
+          name="title"
+          placeholder="اسم الدرس"
+          required
+        >
+
+        <textarea
+          name="description"
+          placeholder="شرح الدرس"
+        ></textarea>
+
+        <input
+          name="video_url"
+          placeholder="رابط الفيديو"
+        >
+
+        <input
+          name="video"
+          type="file"
+          accept="video/*"
+        >
+
+        <input
+          name="pdf"
+          type="file"
+          accept="application/pdf"
+        >
+
+        <textarea
+          name="homework"
+          placeholder="الواجب"
+        ></textarea>
+
+        <button class="btn primary">
+          نشر الدرس
+        </button>
+
+      </form>
+
+    </section>
+
+    <section
+      id="codes"
+      class="admin-section"
+      style="display:none"
+    >
+
+      <h2>
+        إنشاء أكواد الاشتراك
+      </h2>
+
+      <form id="codeForm">
+
+        <input
+          name="course_id"
+          placeholder="Course ID"
+          required
+        >
+
+        <input
+          name="duration_days"
+          type="number"
+          value="30"
+        >
+
+        <input
+          name="quantity"
+          type="number"
+          value="10"
+        >
+
+        <button class="btn primary">
+          إنشاء الأكواد
+        </button>
+
+      </form>
+
+      <pre id="generatedCodes"></pre>
+
+    </section>
+
+    <section
+      id="exams"
+      class="admin-section"
+      style="display:none"
+    >
+
+      <h2>
+        إنشاء امتحان
+      </h2>
+
+      <form id="examForm">
+
+        <input
+          name="course_id"
+          placeholder="Course ID"
+          required
+        >
+
+        <input
+          name="title"
+          placeholder="اسم الامتحان"
+          required
+        >
+
+        <input
+          name="duration_minutes"
+          type="number"
+          value="30"
+        >
+
+        <button class="btn primary">
+          إنشاء الامتحان
+        </button>
+
+      </form>
+
+      <h3>
+        إضافة سؤال
+      </h3>
+
+      <form id="questionForm">
+
+        <input
+          name="exam_id"
+          placeholder="Exam ID"
+          required
+        >
+
+        <input
+          name="question"
+          placeholder="السؤال"
+          required
+        >
+
+        <input
+          name="option_a"
+          placeholder="A"
+          required
+        >
+
+        <input
+          name="option_b"
+          placeholder="B"
+          required
+        >
+
+        <input
+          name="option_c"
+          placeholder="C"
+          required
+        >
+
+        <input
+          name="option_d"
+          placeholder="D"
+          required
+        >
+
+        <select name="correct_answer">
+
+          <option value="A">
+            A
+          </option>
+
+          <option value="B">
+            B
+          </option>
+
+          <option value="C">
+            C
+          </option>
+
+          <option value="D">
+            D
+          </option>
+
+        </select>
+
+        <button class="btn primary">
+          حفظ السؤال
+        </button>
+
+      </form>
+
+    </section>
+
+    <section
+      id="homework"
+      class="admin-section"
+      style="display:none"
+    >
+
+      <h2>
+        واجبات الطلاب
+      </h2>
+
+      <div id="homeworkTable"></div>
+
+    </section>
+
+    <section
+      id="announcements"
+      class="admin-section"
+      style="display:none"
+    >
+
+      <h2>
+        نشر إشعار
+      </h2>
+
+      <form id="announcementForm">
+
+        <input
+          name="title"
+          placeholder="عنوان الإشعار"
+          required
+        >
+
+        <textarea
+          name="body"
+          placeholder="نص الإشعار"
+          required
+        ></textarea>
+
+        <button class="btn primary">
+          نشر
+        </button>
+
+      </form>
+
+    </section>
+
+  </main>
+
+</div>
+
+<script src="/admin.js"></script>
+
+</body>
+</html>
